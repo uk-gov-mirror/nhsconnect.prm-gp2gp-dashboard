@@ -36,12 +36,10 @@ describe("CCG template", () => {
 
     const { getByText } = render(<Ccg pageContext={pipelineCCGData} />);
 
-    await act(async () => {
-      await waitFor(() => {
-        expect(getByText(pipelineCCGData.odsCode)).toBeInTheDocument();
-        expect(getByText(expectedCCGName)).toBeInTheDocument();
-        expect(getByText(expectedPracticeName)).toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(getByText(pipelineCCGData.odsCode)).toBeInTheDocument();
+      expect(getByText(expectedCCGName)).toBeInTheDocument();
+      expect(getByText(expectedPracticeName)).toBeInTheDocument();
     });
   });
 
@@ -59,12 +57,10 @@ describe("CCG template", () => {
 
     const { getByText } = render(<Ccg pageContext={pipelineCCGData} />);
 
-    await act(async () => {
-      await waitFor(() => {
-        expect(getByText(pipelineCCGData.odsCode)).toBeInTheDocument();
-        expect(getByText(expectedCCGName)).toBeInTheDocument();
-        expect(getByText("Error loading practice list")).toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(getByText(pipelineCCGData.odsCode)).toBeInTheDocument();
+      expect(getByText(expectedCCGName)).toBeInTheDocument();
+      expect(getByText("Error loading practice list")).toBeInTheDocument();
     });
   });
 });
